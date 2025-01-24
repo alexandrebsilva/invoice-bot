@@ -1,3 +1,8 @@
+# certificates
+*.pfx
+*.p12
+
+infos.txt
 # Logs
 logs
 *.log

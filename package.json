@@ -1,0 +1,22 @@
+{
+  "name": "invoice-bot",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "author": {
+    "name": "Alexandre Borges",
+    "email": "alexandre.bsilva55@gmail.com"
+  },
+  "scripts": {
+    "start": "ts-node src/index.ts",
+    "clean": "ts-node src/clean.ts"
+  },
+  "dependencies": {
+    "node-mde": "^0.14.10"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.7",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.7.3"
+  }
+}
