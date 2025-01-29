@@ -5,12 +5,19 @@ import fs from "fs";
 function delay(ms: number): Promise<void> {
   return new Promise((resolve) => setTimeout(resolve, ms));
 }
+type StartParams = {
+  passphrase: string;
+  certPath: string;
+  cnpj?: string;
+  cUFAutor?: string;
+  tpAmb?: string;
+};
 
-async function start() {
+async function start(startParams: StartParams): Promise<void> {
   const distribuicao = new DistribuicaoDFe({
-    pfx: fs.readFileSync(process.env.CERT_PATH || ""),
-    passphrase: process.env.CERT_PASSPHRASE,
-    cnpj: process.env.CNPJ,
+    pfx: fs.readFileSync(startParams.certPath),
+    passphrase: startParams.passphrase,
+    cnpj: startParams.cnpj,
     cUFAutor: "35",
     tpAmb: "1",
   });
