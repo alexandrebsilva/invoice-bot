@@ -1,0 +1,253 @@
+{
+  "xml": "<nfeProc versao=\"4.00\" xmlns=\"http://www.portalfiscal.inf.br/nfe\"><NFe xmlns=\"http://www.portalfiscal.inf.br/nfe\"><infNFe Id=\"NFe35241019073771000218550010001671131480165106\" versao=\"4.00\"><ide><cUF>35</cUF><cNF>48016510</cNF><natOp>VENDA DE MERC. ADQUIRIDA OU RECEBIDA DE TERCEIROS</natOp><mod>55</mod><serie>1</serie><nNF>167113</nNF><dhEmi>2024-10-24T13:50:00-03:00</dhEmi><dhSaiEnt>2024-10-24T13:50:00-03:00</dhSaiEnt><tpNF>1</tpNF><idDest>1</idDest><cMunFG>3550308</cMunFG><tpImp>1</tpImp><tpEmis>1</tpEmis><cDV>6</cDV><tpAmb>1</tpAmb><finNFe>1</finNFe><indFinal>0</indFinal><indPres>3</indPres><indIntermed>0</indIntermed><procEmi>0</procEmi><verProc>1.3.233.029</verProc></ide><emit><CNPJ>19073771000218</CNPJ><xNome>COMERCIALW COMERCIO DE PRODUTOS PARA RESTAURANTES LTDA</xNome><xFant>COMERCIALW COMERCIO DE PRODUTOS PARA RESTAURANTES LTDA</xFant><enderEmit><xLgr>AV ARTERIAL SUL</xLgr><nro>451</nro><xBairro>PARQUE IPE</xBairro><cMun>3550308</cMun><xMun>SAO PAULO</xMun><UF>SP</UF><CEP>05571010</CEP><cPais>1058</cPais><xPais>BRASIL</xPais><fone>01938818120</fone></enderEmit><IE>135452594113</IE><CRT>3</CRT></emit><dest><CNPJ>57278972000160</CNPJ><xNome>DATAGARFO FAST FOOD LTDA</xNome><enderDest><xLgr>AVENIDA PAULISTA 854</xLgr><nro>0</nro><xBairro>BELA VISTA</xBairro><cMun>3550308</cMun><xMun>SAO PAULO</xMun><UF>SP</UF><CEP>01310913</CEP><cPais>1058</cPais><xPais>BRASIL</xPais></enderDest><indIEDest>1</indIEDest><IE>150853522111</IE></dest><entrega><CNPJ>57278972000160</CNPJ><xLgr>AVENIDA PAULISTA</xLgr><nro>854</nro><xBairro>BELA VISTA</xBairro><cMun>3550308</cMun><xMun>SAO PAULO</xMun><UF>SP</UF><CEP>01310913</CEP></entrega><det nItem=\"1\"><prod><cProd>262057</cProd><cEAN>SEM GTIN</cEAN><xProd>FILE TILAPIA ORCA CX9X5X0,220KG</xProd><NCM>03046100</NCM><CEST>2899900</CEST><indEscala>S</indEscala><CFOP>5102</CFOP><uCom>KG</uCom><qCom>12.3350</qCom><vUnCom>39.4700000000</vUnCom><vProd>486.86</vProd><cEANTrib>SEM GTIN</cEANTrib><uTrib>KG</uTrib><qTrib>12.3350</qTrib><vUnTrib>39.4700000000</vUnTrib><indTot>1</indTot><xPed>10126686</xPed><nItemPed>1</nItemPed></prod><imposto><ICMS><ICMS51><orig>0</orig><CST>51</CST><modBC>3</modBC><pRedBC>0.0000</pRedBC><vBC>0.00</vBC><pICMS>0.0000</pICMS><vICMSOp>0.00</vICMSOp><pDif>100.0000</pDif><vICMSDif>0.00</vICMSDif><vICMS>0.00</vICMS></ICMS51></ICMS><IPI><cEnq>999</cEnq><IPITrib><CST>99</CST><vBC>0.00</vBC><pIPI>0.0000</pIPI><vIPI>0.00</vIPI></IPITrib></IPI><PIS><PISNT><CST>06</CST></PISNT></PIS><COFINS><COFINSNT><CST>06</CST></COFINSNT></COFINS></imposto></det><total><ICMSTot><vBC>0.00</vBC><vICMS>0.00</vICMS><vICMSDeson>0.00</vICMSDeson><vFCP>0.00</vFCP><vBCST>0.00</vBCST><vST>0.00</vST><vFCPST>0.00</vFCPST><vFCPSTRet>0.00</vFCPSTRet><qBCMono>0.00</qBCMono><vICMSMono>0.00</vICMSMono><qBCMonoReten>0.00</qBCMonoReten><vICMSMonoReten>0.00</vICMSMonoReten><qBCMonoRet>0.00</qBCMonoRet><vICMSMonoRet>0.00</vICMSMonoRet><vProd>486.86</vProd><vFrete>0.00</vFrete><vSeg>0.00</vSeg><vDesc>0.00</vDesc><vII>0.00</vII><vIPI>0.00</vIPI><vIPIDevol>0.00</vIPIDevol><vPIS>0.00</vPIS><vCOFINS>0.00</vCOFINS><vOutro>0.00</vOutro><vNF>486.86</vNF><vTotTrib>0.00</vTotTrib></ICMSTot></total><transp><modFrete>0</modFrete><transporta><CNPJ>13471709000389</CNPJ><xNome>LOGW SERVICOS DE TRANSPORTES LTDA</xNome><IE>121885164113</IE><xEnder>AVENIDA ARTERIAL SUL, 451</xEnder><xMun>SAO PAULO</xMun><UF>SP</UF></transporta><vol><qVol>1</qVol><nVol>1</nVol><pesoL>12.335</pesoL><pesoB>12.952</pesoB></vol></transp><cobr><fat><nFat>167113</nFat><vOrig>486.86</vOrig><vDesc>0</vDesc><vLiq>486.86</vLiq></fat><dup><nDup>001</nDup><dVenc>2024-11-07</dVenc><vDup>486.86</vDup></dup></cobr><pag><detPag><indPag>1</indPag><tPag>15</tPag><vPag>486.86</vPag></detPag></pag><infAdic><infCpl>Mercadoria a ser retirada do armazem geral - LogW Servicos de Transportes EIRELI - EPP, situado a Avenida Arterial Sul, no 451, sala 02 andar piso inferior bloco C3 - Parque Ipe, Sao Paulo, Inscricao Estadual: 121.885.164.113 e CNPJ: 13.471.709/0003-89.//NR. PEDIDO:10126686 ----//ICMS DIFERIDO cfme. Art. 391 do RICMS-SP</infCpl></infAdic><infRespTec><CNPJ>07577599000501</CNPJ><xContato>TOTVS BRASILIA SOFTWARE - UNIDADE GOIANIA LTDA</xContato><email>resp_tecnico_dfe_winthor@totvs.com.br</email><fone>06232500200</fone></infRespTec></infNFe><Signature xmlns=\"http://www.w3.org/2000/09/xmldsig#\"><SignedInfo><CanonicalizationMethod Algorithm=\"http://www.w3.org/TR/2001/REC-xml-c14n-20010315\" /><SignatureMethod Algorithm=\"http://www.w3.org/2000/09/xmldsig#rsa-sha1\" /><Reference URI=\"#NFe35241019073771000218550010001671131480165106\"><Transforms><Transform Algorithm=\"http://www.w3.org/2000/09/xmldsig#enveloped-signature\" /><Transform Algorithm=\"http://www.w3.org/TR/2001/REC-xml-c14n-20010315\" /></Transforms><DigestMethod Algorithm=\"http://www.w3.org/2000/09/xmldsig#sha1\" /><DigestValue>epUgXFfUbFEF3AeAdDaX6hbR434=</DigestValue></Reference></SignedInfo><SignatureValue>B4YhanenNaOuOxyNmMorWqRmtVGZMAkoYpy7QLdE/+cTU9Ygt4j1e3SszMhaZaX7v1bGFKXGrXcZ85QrkcyBlzL+CJE6y4AeJbfTAV9JpIQ6s43revz77nsGdyM9swjbra4CP/Tuhz609iHOncPxoklb/1HNLF8ePDfzL7LUBOAusJqOlYVwqAFU0iQXCX1sagyQ9wN6oGt+up14ts/eBjBHuiltDIlnepaOyf/D/PAwOTkf9yM0J4zf5ZwsRfL8c+A6nhBeu+GaIXyptcgodBMWwBxq9f4qEktEODvSviI1poF0yYQwdbuo2sT810Sg2FqjcGOMzOGjRnu/05vAiw==</SignatureValue><KeyInfo><X509Data><X509Certificate>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</X509Certificate></X509Data></KeyInfo></Signature></NFe><protNFe versao=\"4.00\"><infProt Id=\"Id135242405603033\"><tpAmb>1</tpAmb><verAplic>SP_NFE_PL009_V4</verAplic><chNFe>35241019073771000218550010001671131480165106</chNFe><dhRecbto>2024-10-24T13:50:36-03:00</dhRecbto><nProt>135242405603033</nProt><digVal>epUgXFfUbFEF3AeAdDaX6hbR434=</digVal><cStat>100</cStat><xMotivo>Autorizado o uso da NF-e</xMotivo></infProt></protNFe></nfeProc>",
+  "json": {
+    "nfeProc": {
+      "NFe": {
+        "infNFe": {
+          "ide": {
+            "cUF": "35",
+            "cNF": "48016510",
+            "natOp": "VENDA DE MERC. ADQUIRIDA OU RECEBIDA DE TERCEIROS",
+            "mod": "55",
+            "serie": "1",
+            "nNF": "167113",
+            "dhEmi": "2024-10-24T13:50:00-03:00",
+            "dhSaiEnt": "2024-10-24T13:50:00-03:00",
+            "tpNF": "1",
+            "idDest": "1",
+            "cMunFG": "3550308",
+            "tpImp": "1",
+            "tpEmis": "1",
+            "cDV": "6",
+            "tpAmb": "1",
+            "finNFe": "1",
+            "indFinal": "0",
+            "indPres": "3",
+            "indIntermed": "0",
+            "procEmi": "0",
+            "verProc": "1.3.233.029"
+          },
+          "emit": {
+            "CNPJ": "19073771000218",
+            "xNome": "COMERCIALW COMERCIO DE PRODUTOS PARA RESTAURANTES LTDA",
+            "xFant": "COMERCIALW COMERCIO DE PRODUTOS PARA RESTAURANTES LTDA",
+            "enderEmit": {
+              "xLgr": "AV ARTERIAL SUL",
+              "nro": "451",
+              "xBairro": "PARQUE IPE",
+              "cMun": "3550308",
+              "xMun": "SAO PAULO",
+              "UF": "SP",
+              "CEP": "05571010",
+              "cPais": "1058",
+              "xPais": "BRASIL",
+              "fone": "01938818120"
+            },
+            "IE": "135452594113",
+            "CRT": "3"
+          },
+          "dest": {
+            "CNPJ": "57278972000160",
+            "xNome": "DATAGARFO FAST FOOD LTDA",
+            "enderDest": {
+              "xLgr": "AVENIDA PAULISTA 854",
+              "nro": "0",
+              "xBairro": "BELA VISTA",
+              "cMun": "3550308",
+              "xMun": "SAO PAULO",
+              "UF": "SP",
+              "CEP": "01310913",
+              "cPais": "1058",
+              "xPais": "BRASIL"
+            },
+            "indIEDest": "1",
+            "IE": "150853522111"
+          },
+          "entrega": {
+            "CNPJ": "57278972000160",
+            "xLgr": "AVENIDA PAULISTA",
+            "nro": "854",
+            "xBairro": "BELA VISTA",
+            "cMun": "3550308",
+            "xMun": "SAO PAULO",
+            "UF": "SP",
+            "CEP": "01310913"
+          },
+          "det": {
+            "prod": {
+              "cProd": "262057",
+              "cEAN": "SEM GTIN",
+              "xProd": "FILE TILAPIA ORCA CX9X5X0,220KG",
+              "NCM": "03046100",
+              "CEST": "2899900",
+              "indEscala": "S",
+              "CFOP": "5102",
+              "uCom": "KG",
+              "qCom": "12.3350",
+              "vUnCom": "39.4700000000",
+              "vProd": "486.86",
+              "cEANTrib": "SEM GTIN",
+              "uTrib": "KG",
+              "qTrib": "12.3350",
+              "vUnTrib": "39.4700000000",
+              "indTot": "1",
+              "xPed": "10126686",
+              "nItemPed": "1"
+            },
+            "imposto": {
+              "ICMS": {
+                "ICMS51": {
+                  "orig": "0",
+                  "CST": "51",
+                  "modBC": "3",
+                  "pRedBC": "0.0000",
+                  "vBC": "0.00",
+                  "pICMS": "0.0000",
+                  "vICMSOp": "0.00",
+                  "pDif": "100.0000",
+                  "vICMSDif": "0.00",
+                  "vICMS": "0.00"
+                }
+              },
+              "IPI": {
+                "cEnq": "999",
+                "IPITrib": {
+                  "CST": "99",
+                  "vBC": "0.00",
+                  "pIPI": "0.0000",
+                  "vIPI": "0.00"
+                }
+              },
+              "PIS": { "PISNT": { "CST": "06" } },
+              "COFINS": { "COFINSNT": { "CST": "06" } }
+            },
+            "@_nItem": "1"
+          },
+          "total": {
+            "ICMSTot": {
+              "vBC": "0.00",
+              "vICMS": "0.00",
+              "vICMSDeson": "0.00",
+              "vFCP": "0.00",
+              "vBCST": "0.00",
+              "vST": "0.00",
+              "vFCPST": "0.00",
+              "vFCPSTRet": "0.00",
+              "qBCMono": "0.00",
+              "vICMSMono": "0.00",
+              "qBCMonoReten": "0.00",
+              "vICMSMonoReten": "0.00",
+              "qBCMonoRet": "0.00",
+              "vICMSMonoRet": "0.00",
+              "vProd": "486.86",
+              "vFrete": "0.00",
+              "vSeg": "0.00",
+              "vDesc": "0.00",
+              "vII": "0.00",
+              "vIPI": "0.00",
+              "vIPIDevol": "0.00",
+              "vPIS": "0.00",
+              "vCOFINS": "0.00",
+              "vOutro": "0.00",
+              "vNF": "486.86",
+              "vTotTrib": "0.00"
+            }
+          },
+          "transp": {
+            "modFrete": "0",
+            "transporta": {
+              "CNPJ": "13471709000389",
+              "xNome": "LOGW SERVICOS DE TRANSPORTES LTDA",
+              "IE": "121885164113",
+              "xEnder": "AVENIDA ARTERIAL SUL, 451",
+              "xMun": "SAO PAULO",
+              "UF": "SP"
+            },
+            "vol": {
+              "qVol": "1",
+              "nVol": "1",
+              "pesoL": "12.335",
+              "pesoB": "12.952"
+            }
+          },
+          "cobr": {
+            "fat": {
+              "nFat": "167113",
+              "vOrig": "486.86",
+              "vDesc": "0",
+              "vLiq": "486.86"
+            },
+            "dup": { "nDup": "001", "dVenc": "2024-11-07", "vDup": "486.86" }
+          },
+          "pag": {
+            "detPag": { "indPag": "1", "tPag": "15", "vPag": "486.86" }
+          },
+          "infAdic": {
+            "infCpl": "Mercadoria a ser retirada do armazem geral - LogW Servicos de Transportes EIRELI - EPP, situado a Avenida Arterial Sul, no 451, sala 02 andar piso inferior bloco C3 - Parque Ipe, Sao Paulo, Inscricao Estadual: 121.885.164.113 e CNPJ: 13.471.709/0003-89.//NR. PEDIDO:10126686 ----//ICMS DIFERIDO cfme. Art. 391 do RICMS-SP"
+          },
+          "infRespTec": {
+            "CNPJ": "07577599000501",
+            "xContato": "TOTVS BRASILIA SOFTWARE - UNIDADE GOIANIA LTDA",
+            "email": "resp_tecnico_dfe_winthor@totvs.com.br",
+            "fone": "06232500200"
+          },
+          "@_Id": "NFe35241019073771000218550010001671131480165106",
+          "@_versao": "4.00"
+        },
+        "Signature": {
+          "SignedInfo": {
+            "CanonicalizationMethod": {
+              "@_Algorithm": "http://www.w3.org/TR/2001/REC-xml-c14n-20010315"
+            },
+            "SignatureMethod": {
+              "@_Algorithm": "http://www.w3.org/2000/09/xmldsig#rsa-sha1"
+            },
+            "Reference": {
+              "Transforms": {
+                "Transform": [
+                  {
+                    "@_Algorithm": "http://www.w3.org/2000/09/xmldsig#enveloped-signature"
+                  },
+                  {
+                    "@_Algorithm": "http://www.w3.org/TR/2001/REC-xml-c14n-20010315"
+                  }
+                ]
+              },
+              "DigestMethod": {
+                "@_Algorithm": "http://www.w3.org/2000/09/xmldsig#sha1"
+              },
+              "DigestValue": "epUgXFfUbFEF3AeAdDaX6hbR434=",
+              "@_URI": "#NFe35241019073771000218550010001671131480165106"
+            }
+          },
+          "SignatureValue": "B4YhanenNaOuOxyNmMorWqRmtVGZMAkoYpy7QLdE/+cTU9Ygt4j1e3SszMhaZaX7v1bGFKXGrXcZ85QrkcyBlzL+CJE6y4AeJbfTAV9JpIQ6s43revz77nsGdyM9swjbra4CP/Tuhz609iHOncPxoklb/1HNLF8ePDfzL7LUBOAusJqOlYVwqAFU0iQXCX1sagyQ9wN6oGt+up14ts/eBjBHuiltDIlnepaOyf/D/PAwOTkf9yM0J4zf5ZwsRfL8c+A6nhBeu+GaIXyptcgodBMWwBxq9f4qEktEODvSviI1poF0yYQwdbuo2sT810Sg2FqjcGOMzOGjRnu/05vAiw==",
+          "KeyInfo": {
+            "X509Data": {
+              "X509Certificate": "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"
+            }
+          },
+          "@_xmlns": "http://www.w3.org/2000/09/xmldsig#"
+        },
+        "@_xmlns": "http://www.portalfiscal.inf.br/nfe"
+      },
+      "protNFe": {
+        "infProt": {
+          "tpAmb": "1",
+          "verAplic": "SP_NFE_PL009_V4",
+          "chNFe": "35241019073771000218550010001671131480165106",
+          "dhRecbto": "2024-10-24T13:50:36-03:00",
+          "nProt": "135242405603033",
+          "digVal": "epUgXFfUbFEF3AeAdDaX6hbR434=",
+          "cStat": "100",
+          "xMotivo": "Autorizado o uso da NF-e",
+          "@_Id": "Id135242405603033"
+        },
+        "@_versao": "4.00"
+      },
+      "@_versao": "4.00",
+      "@_xmlns": "http://www.portalfiscal.inf.br/nfe"
+    }
+  },
+  "nsu": "000000000000049",
+  "schema": "procNFe_v4.00.xsd"
+}

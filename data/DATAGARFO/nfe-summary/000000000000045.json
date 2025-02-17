@@ -1,0 +1,24 @@
+{
+  "xml": "<resNFe xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" versao=\"1.01\" xmlns=\"http://www.portalfiscal.inf.br/nfe\"><chNFe>35241019073771000218550010001671131480165106</chNFe><CNPJ>19073771000218</CNPJ><xNome>COMERCIALW COMERCIO DE PRODUTOS PARA RESTAURANTES LTDA</xNome><IE>135452594113</IE><dhEmi>2024-10-24T13:50:00-03:00</dhEmi><tpNF>1</tpNF><vNF>486.86</vNF><digVal>epUgXFfUbFEF3AeAdDaX6hbR434=</digVal><dhRecbto>2024-10-24T13:50:36-03:00</dhRecbto><nProt>135242405603033</nProt><cSitNFe>1</cSitNFe></resNFe>",
+  "json": {
+    "resNFe": {
+      "chNFe": "35241019073771000218550010001671131480165106",
+      "CNPJ": "19073771000218",
+      "xNome": "COMERCIALW COMERCIO DE PRODUTOS PARA RESTAURANTES LTDA",
+      "IE": "135452594113",
+      "dhEmi": "2024-10-24T13:50:00-03:00",
+      "tpNF": "1",
+      "vNF": "486.86",
+      "digVal": "epUgXFfUbFEF3AeAdDaX6hbR434=",
+      "dhRecbto": "2024-10-24T13:50:36-03:00",
+      "nProt": "135242405603033",
+      "cSitNFe": "1",
+      "@_xmlns:xsd": "http://www.w3.org/2001/XMLSchema",
+      "@_xmlns:xsi": "http://www.w3.org/2001/XMLSchema-instance",
+      "@_versao": "1.01",
+      "@_xmlns": "http://www.portalfiscal.inf.br/nfe"
+    }
+  },
+  "nsu": "000000000000045",
+  "schema": "resNFe_v1.01.xsd"
+}
