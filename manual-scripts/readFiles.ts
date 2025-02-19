@@ -1,12 +1,12 @@
 import * as fs from "fs";
 import * as path from "path";
 import DatabaseManager from "../src/helpers/database";
-import { COMPANIES } from "../src/configs/companies";
 
 const directoryPath = path.join(__dirname, "../data");
 const companyFolders = ["nfe-complete", "nfe-event", "other", "nfe-summary"];
 
 async function readFilesForCompany(companyName: string) {
+  const databaseManager = new DatabaseManager();
   companyFolders.forEach((folder) => {
     const folderPath = path.join(directoryPath, companyName, folder);
     fs.readdir(folderPath, (err, files) => {
@@ -23,7 +23,7 @@ async function readFilesForCompany(companyName: string) {
             }
             try {
               const jsonData = JSON.parse(data);
-              DatabaseManager.saveDocument(folder, {
+              databaseManager.save(folder, {
                 companyName,
                 ...jsonData,
                 nsu: "ARCHIVED",

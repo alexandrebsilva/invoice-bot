@@ -1,53 +1,55 @@
-import mongoose from "mongoose";
+import mongoose, { Connection, Mongoose } from "mongoose";
 import { AvailableCompaniesNames } from "../configs/companies";
 
 class DatabaseManager {
   private static uri = "mongodb://admin:admin@localhost:27017";
 
-  private static async establishConnection(): Promise<void> {
-    try {
-      await mongoose.connect(DatabaseManager.uri, { dbName: "nfes" });
-    } catch (error) {
-      console.error("Failed to connect to the database", error);
-      throw error;
-    }
+  private connection: Connection | null = null;
+
+  public get connectionInstance(): Connection | null {
+    return this.connection;
   }
 
-  public static async saveDocument(
+  private async getConnection(): Promise<Connection> {
+    if (!this.connection) {
+      try {
+        const mongooseInstance: Mongoose = await mongoose.connect(
+          DatabaseManager.uri,
+          { dbName: "nfes" }
+        );
+        this.connection = mongooseInstance.connection;
+        console.log("Database connected successfully");
+      } catch (error) {
+        console.error("Database connection error:", error);
+        throw error;
+      }
+    }
+    return this.connection;
+  }
+
+  public async connect(): Promise<void> {
+    await this.getConnection();
+  }
+
+  public async save(collectionName: string, document: any): Promise<any> {
+    const connection = await this.getConnection();
+    const collection = connection.collection(collectionName);
+    const result = await collection.insertOne(document);
+    return result;
+  }
+
+  public async findLast(
     collectionName: string,
-    document: object
-  ): Promise<void> {
-    try {
-      if (mongoose.connection.readyState !== 1) {
-        await DatabaseManager.establishConnection();
-      }
-      const collection = mongoose.connection.collection(collectionName);
-      await collection.insertOne(document);
-      console.log(`Document inserted into collection: ${collectionName}`);
-    } catch (error) {
-      console.error("Failed to insert document", error);
-      throw error;
-    }
-  }
-
-  public static async getLastInteractionNsu(
     companyName: AvailableCompaniesNames
-  ): Promise<string> {
-    try {
-      if (mongoose.connection.readyState !== 1) {
-        await DatabaseManager.establishConnection();
-      }
-      const collection = mongoose.connection.collection("interactions");
-      const lastDocument = await collection.findOne(
-        { companyName },
-        { sort: { createdAt: -1 } }
-      );
+  ): Promise<any> {
+    const connection = await this.getConnection();
+    const collection = connection.collection(collectionName);
+    const result = await collection.findOne(
+      { companyName },
+      { sort: { createdAt: -1 } }
+    );
 
-      return lastDocument?.ultNSU || "000000000000000";
-    } catch (error) {
-      console.error("Failed to get the last interaction", error);
-      throw error;
-    }
+    return result || "000000000000000";
   }
 }
 
