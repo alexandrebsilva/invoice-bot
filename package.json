@@ -8,18 +8,25 @@
     "email": "alexandre.bsilva55@gmail.com"
   },
   "scripts": {
-    "start": "ts-node src/index.ts",
+    "start:DATAGARFO": "COMPANY=DATAGARFO ts-node src/index.ts",
+    "start:ALGOREATS": "COMPANY=ALGOREATS ts-node src/index.ts",
+    "start:CROAREALIDADE": "COMPANY=CROAREALIDADE ts-node src/index.ts",
+    "start:all": "pm2 start ecosystem.config.js ; pm2 monit",
+    "stop:all": "pm2 stop all",
+    "restart:all": "pm2 restart all",
+    "delete:all": "pm2 delete all",
     "clean": "ts-node manual-scripts/clean.ts",
     "readFiles": "ts-node manual-scripts/readFiles.ts"
   },
   "dependencies": {
     "mongoose": "^8.10.1",
-    "node-mde": "^0.14.10"
+    "node-mde": "^0.14.10",
+    "pm2": "^5.4.3"
   },
   "devDependencies": {
     "@types/mongoose": "^5.11.97",
     "@types/node": "^22.10.7",
     "ts-node": "^10.9.2",
-    "typescript": "^5.7.3"
+    "typescript": "^5.8.3"
   }
 }

@@ -2,7 +2,7 @@ import { DistribuicaoDFe } from "node-mde";
 import fs from "fs";
 import { COMPANIES, Company } from "./configs/companies";
 import { delay } from "./helpers/delay";
-import DatabaseManager from "./helpers/database";
+import DatabaseManager from "./database/database";
 
 type StartParams = Company & {
   cUFAutor?: string;
@@ -23,35 +23,33 @@ async function start(startParams: StartParams): Promise<void> {
     let continuar = true;
 
     while (continuar) {
-      const currentNsu = await databaseManager.findLast(
+      let nsu = await databaseManager.findLast(
         "interactions",
         startParams.companyName
       );
-      const resposta = await distribuicao.consultaUltNSU(currentNsu);
+
+      nsu = nsu || "000000000000000";
+
+      const resposta = await distribuicao.consultaUltNSU(nsu);
 
       const { cStat, ultNSU, xMotivo, tpAmb } = resposta.data;
 
-      console.log(`Recebido cStat: ${cStat}, NSU: ${ultNSU}`);
+      console.log(`Recebido cStat: ${cStat}, NSU: ${nsu}, date: ${new Date()}`);
 
       switch (+cStat) {
         case 137:
           console.log("Nenhum documento localizado. Aguardando 1 hora...");
           await delay(3600000); // Pausa de 1 hora
-          continuar = false;
-          break;
-        case 656:
-          console.log("Uso indevido. Rebuscando notas em 1 hora");
-          console.log(resposta);
-
-          await delay(3600000); // Pausa de 1 hora
           break;
         case 138:
           console.log("Documento localizado. Reconsultando em 1 segundo...");
-          await delay(1000); // Pausa de 1 segundo
+          break;
+        case 656:
+          console.log("Uso indevido. Rebuscando notas em 1 hora");
+          await delay(3600000); // Pausa de 1 hora
           break;
         case 100:
-          console.log(`Nota processada com sucesso! NSU: ${currentNsu}`);
-          continuar = false; // Encerra o loop
+          console.log(`Nota processada com sucesso! NSU: ${nsu}`);
           break;
         default:
           console.log("Código desconhecido. Finalizando...");
@@ -76,11 +74,13 @@ async function start(startParams: StartParams): Promise<void> {
 
       await databaseManager.save("interactions", {
         cStat,
-        ultNSU,
+        nsu,
+        ultNSU: ultNSU,
         xMotivo,
         tpAmb,
         createdAt: new Date(),
         companyName: startParams.companyName,
+        success: [137, 138, 100].includes(+cStat),
       });
     }
   } catch (error) {
@@ -88,4 +88,8 @@ async function start(startParams: StartParams): Promise<void> {
   }
 }
 
-start({ ...COMPANIES.ALGOREATS }).then(() => console.log("Done!"));
+console.log(process.env.COMPANY);
+
+start({ ...COMPANIES[`${process.env.COMPANY}`] }).then(() =>
+  console.log("Done!")
+);

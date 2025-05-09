@@ -1,6 +1,6 @@
 import * as fs from "fs";
 import * as path from "path";
-import DatabaseManager from "../src/helpers/database";
+import DatabaseManager from "../src/database/database";
 
 const directoryPath = path.join(__dirname, "../data");
 const companyFolders = ["nfe-complete", "nfe-event", "other", "nfe-summary"];

@@ -1,7 +1,7 @@
-export interface NfeComplete {
-  _id: {
-    $oid: string;
-  };
+import { NfeComplete } from "../nfe-complete";
+
+export class NfeCompleteDto implements NfeComplete {
+  _id: { $oid: string };
   companyName: string;
   xml: string;
   json: {
@@ -85,8 +85,8 @@ export interface NfeComplete {
               xProd: string;
               NCM: string;
               CFOP: string;
-              uCom: string;
-              qCom: string;
+              uCom: string; // Changed to number
+              qCom: string; // Changed to number
               vUnCom: string;
               vProd: string;
               cEANTrib: string;
@@ -290,4 +290,28 @@ export interface NfeComplete {
   };
   nsu: string;
   schema: string;
+
+  constructor(nfeComplete: NfeComplete) {
+    this._id = nfeComplete._id;
+    this.companyName = nfeComplete.companyName;
+    this.xml = nfeComplete.xml;
+    this.json = nfeComplete.json;
+    this.nsu = nfeComplete.nsu;
+    this.schema = nfeComplete.schema;
+  }
+  private convertStringToDouble(value: string): number {
+    return parseFloat(value);
+  }
+
+  public mapAndConvertProps(
+    arr: Array<{ [key: string]: any }>
+  ): Array<{ [key: string]: any }> {
+    return arr.map((item) => {
+      if (item.prod) {
+        item.prod.uCom = this.convertStringToDouble(item.prod.uCom);
+        item.prod.qCom = this.convertStringToDouble(item.prod.qCom);
+      }
+      return item;
+    });
+  }
 }

@@ -9,6 +9,7 @@ export type Company = {
   passphrase: string;
   certPath: string;
 };
+
 export const COMPANIES: { [key: string]: Company } = {
   ALGOREATS: {
     cnpj: "54858948000101",
