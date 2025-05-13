@@ -20,7 +20,7 @@
   },
   "dependencies": {
     "mongoose": "^8.10.1",
-    "node-mde": "^0.14.10",
+    "node-mde": "^0.14.13",
     "pm2": "^5.4.3"
   },
   "devDependencies": {

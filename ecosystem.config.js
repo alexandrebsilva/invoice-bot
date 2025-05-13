@@ -9,16 +9,19 @@ const apps = [
   {
     ...commonParams,
     name: "ALGOREATS",
+    watch: ["src"],
     env: { COMPANY: "ALGOREATS" },
   },
   {
     ...commonParams,
     name: "DATAGARFO",
+    watch: ["src"],
     env: { COMPANY: "DATAGARFO" },
   },
   {
     ...commonParams,
     name: "CROAREALIDADE",
+    watch: ["src"],
     env: { COMPANY: "CROAREALIDADE" },
   },
 ];

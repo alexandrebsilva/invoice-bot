@@ -74,10 +74,7 @@ class DatabaseManager {
     return result;
   }
 }
-const databaseManager = new DatabaseManager();
-databaseManager.updateMany().then(() => {
-  console.log("done");
-});
+
 export default DatabaseManager;
 
 // [

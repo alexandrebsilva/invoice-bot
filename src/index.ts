@@ -1,8 +1,8 @@
 import { DistribuicaoDFe } from "node-mde";
-import fs from "fs";
+import { readFileSync } from "fs";
+import DatabaseManager from "./database/database";
 import { COMPANIES, Company } from "./configs/companies";
 import { delay } from "./helpers/delay";
-import DatabaseManager from "./database/database";
 
 type StartParams = Company & {
   cUFAutor?: string;
@@ -11,7 +11,7 @@ type StartParams = Company & {
 
 async function start(startParams: StartParams): Promise<void> {
   const distribuicao = new DistribuicaoDFe({
-    pfx: fs.readFileSync(startParams.certPath),
+    pfx: readFileSync(startParams.certPath),
     passphrase: startParams.passphrase,
     cnpj: startParams.cnpj,
     cUFAutor: "35",
@@ -31,6 +31,9 @@ async function start(startParams: StartParams): Promise<void> {
       nsu = nsu || "000000000000000";
 
       const resposta = await distribuicao.consultaUltNSU(nsu);
+      if (resposta.error) {
+        throw new Error(resposta.error);
+      }
 
       const { cStat, ultNSU, xMotivo, tpAmb } = resposta.data;
 
