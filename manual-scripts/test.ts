@@ -1,9 +1,7 @@
 import mongoose, { Collection, Connection, Mongoose } from "mongoose";
 import { NfeEvent } from "../src/database/models/nfe-event";
 import { NfeSummary, NfeSummaryDto } from "../src/database/models/nfe-summary";
-import { NfeCompleteDto } from "../src/database/models/dtos/nfe-complete.dto";
 import { NfeComplete } from "../src/database/models/nfe-complete";
-import { normalizeJson } from "../src/helpers/normalize-json";
 class DatabaseManager {
   private static uri =
     "mongodb+srv://invoice-bot:BWLVZK4jY6LPRknb@cluster0.k0iwq.mongodb.net/";
@@ -35,7 +33,7 @@ class DatabaseManager {
     await this.getConnection();
   }
 
-  public async normalizePayload() {
+  public async normalizeNfeSummaryPayload() {
     const connection = await this.getConnection();
     const collection = connection.collection("nfe_summary");
 
@@ -89,7 +87,7 @@ class DatabaseManager {
     // Get all chNFe from nfe_complete
     const completes = (await completeCollection
       .find({})
-      .toArray()) as unknown as NfeCompleteDto[];
+      .toArray()) as unknown as NfeComplete[];
     console.log(`Found ${completes.length} documents in nfe_complete`);
 
     // Create sets of chNFe for faster lookup
@@ -130,7 +128,7 @@ class DatabaseManager {
       .toArray()) as unknown as NfeSummaryDto[];
     const completes = (await completeCollection
       .find({})
-      .toArray()) as unknown as NfeCompleteDto[];
+      .toArray()) as unknown as NfeComplete[];
     const events = (await eventCollection
       .find({})
       .toArray()) as unknown as NfeEvent[];
@@ -212,10 +210,50 @@ class DatabaseManager {
       `\nDocuments with all relationships: ${completeRelations.length}`
     );
   }
+
+  public async normalizeNfeCompletePayload() {
+    const connection = await this.getConnection();
+    const collection = connection.collection("nfe_complete");
+
+    // Get all documents
+    const documents = (await collection
+      .find({})
+      .toArray()) as unknown as NfeComplete[];
+    console.log(`Found ${documents.length} documents to process`);
+
+    let processed = 0;
+    let errors = 0;
+
+    for (const dto of documents) {
+      try {
+        // Convert to NfeComplete instance
+        const nfeComplete = NfeComplete.fromDto(dto);
+
+        // Update the document with normalized data
+        await collection.updateOne(
+          { _id: dto._id },
+          { $set: { json: nfeComplete.json } }
+        );
+
+        processed++;
+        if (processed % 100 === 0) {
+          console.log(`Processed ${processed} documents...`);
+        }
+      } catch (error) {
+        console.error(`Error processing document ${dto._id}:`, error);
+        errors++;
+      }
+    }
+
+    console.log(`\nProcessing complete:`);
+    console.log(`- Total documents: ${documents.length}`);
+    console.log(`- Successfully processed: ${processed}`);
+    console.log(`- Errors: ${errors}`);
+  }
 }
 
 const databaseManager = new DatabaseManager();
-// databaseManager.normalizePayload().then(() => {
+// databaseManager.normalizeNfeSummaryPayload().then(() => {
 //   process.exit();
 // });
 
@@ -223,6 +261,10 @@ const databaseManager = new DatabaseManager();
 //   process.exit();
 // });
 
-databaseManager.analyzeCollectionRelationships().then(() => {
+// databaseManager.analyzeCollectionRelationships().then(() => {
+//   process.exit();
+// });
+
+databaseManager.normalizeNfeCompletePayload().then(() => {
   process.exit();
 });
