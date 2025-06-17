@@ -1,6 +1,7 @@
 import mongoose, { Connection, Mongoose } from "mongoose";
 import { AvailableCompaniesNames } from "../configs/companies";
 import { NfeSummary } from "./models/nfe-summary";
+import { NfeComplete } from "./models/nfe-complete";
 
 class DatabaseManager {
   private static uri =
@@ -36,7 +37,11 @@ class DatabaseManager {
   public async save(collectionName: string, document: any): Promise<any> {
     const connection = await this.getConnection();
     const content =
-      collectionName == "nfe_summary" ? NfeSummary.fromDto(document) : document;
+      collectionName === "nfe_summary"
+        ? NfeSummary.fromDto(document)
+        : collectionName === "nfe_complete"
+        ? NfeComplete.fromDto(document)
+        : document;
     const collection = connection.collection(collectionName);
     const result = await collection.insertOne({
       ...content,
