@@ -1,4 +1,4 @@
-interface NfeEvent {
+export interface NfeEvent {
   _id: {
     $oid: string;
   };

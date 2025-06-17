@@ -1,4 +1,4 @@
-import express from "express";
+import express, { Request, Response } from "express";
 import DatabaseManager from "./database/database";
 
 const app = express();
@@ -9,7 +9,7 @@ const databaseManager = new DatabaseManager();
 app.use(express.json());
 
 // Route to get all NFE summaries
-app.get("/api/nfe-summaries", async (req, res) => {
+app.get("/api/nfe-summaries", async (req: Request, res: Response) => {
   try {
     const summaries = await databaseManager.findAll("nfe_summary");
     res.json({
@@ -26,7 +26,7 @@ app.get("/api/nfe-summaries", async (req, res) => {
 });
 
 // Health check route
-app.get("/health", (req, res) => {
+app.get("/health", (req: Request, res: Response) => {
   res.json({ status: "ok" });
 });
 
