@@ -3,11 +3,11 @@ interface ResNFe {
   CNPJ: string;
   xNome: string;
   IE: string;
-  dhEmi: string | Date;
+  dhEmi: Date;
   tpNF: string;
-  vNF: string | number;
+  vNF: number;
   digVal: string;
-  dhRecbto: string | Date;
+  dhRecbto: Date;
   nProt: string;
   cSitNFe: string;
   "@_xmlns:xsd": string;

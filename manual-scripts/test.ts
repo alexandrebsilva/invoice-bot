@@ -1,6 +1,6 @@
 import mongoose, { Collection, Connection, Mongoose } from "mongoose";
 import { NfeEvent } from "../src/database/models/nfe-event";
-import { NfeSummary, NfeSummaryDto } from "../src/database/models/nfe-summary";
+import { NfeSummary } from "../src/database/models/nfe-summary";
 import { NfeComplete } from "../src/database/models/nfe-complete";
 class DatabaseManager {
   private static uri =
@@ -40,7 +40,7 @@ class DatabaseManager {
     // Get all documents
     const documents = (await collection
       .find({})
-      .toArray()) as unknown as NfeSummaryDto[];
+      .toArray()) as unknown as NfeSummary[];
     console.log(`Found ${documents.length} documents to process`);
 
     let processed = 0;
@@ -81,7 +81,7 @@ class DatabaseManager {
     // Get all chNFe from nfe_summary
     const summaries = (await summaryCollection
       .find({})
-      .toArray()) as unknown as NfeSummaryDto[];
+      .toArray()) as unknown as NfeSummary[];
     console.log(`Found ${summaries.length} documents in nfe_summary`);
 
     // Get all chNFe from nfe_complete
@@ -125,7 +125,7 @@ class DatabaseManager {
     // Get all documents from each collection
     const summaries = (await summaryCollection
       .find({})
-      .toArray()) as unknown as NfeSummaryDto[];
+      .toArray()) as unknown as NfeSummary[];
     const completes = (await completeCollection
       .find({})
       .toArray()) as unknown as NfeComplete[];

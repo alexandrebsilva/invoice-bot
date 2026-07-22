@@ -20,7 +20,7 @@ export const COMPANIES: { [key: string]: Company } = {
   DATAGARFO: {
     cnpj: "57278972000160",
     companyName: "DATAGARFO",
-    passphrase: "12345678",
+    passphrase: "1AqVnPn5",
     certPath: "./certs/DATAGARFO.pfx",
   },
   CROAREALIDADE: {

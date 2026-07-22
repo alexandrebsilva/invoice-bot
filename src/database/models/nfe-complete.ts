@@ -1,14 +1,14 @@
-type DetItem = {
+export type DetItem = {
   prod: {
     cProd: string;
     cEAN: string;
     xProd: string;
     NCM: string;
     CFOP: string;
-    uCom: string | number;
-    qCom: string | number;
-    vUnCom: string | number;
-    vProd: string | number;
+    uCom: number;
+    qCom: number;
+    vUnCom: number;
+    vProd: number;
     cEANTrib: string;
     uTrib: string;
     qTrib: string;
@@ -95,8 +95,8 @@ export interface NfeComplete {
             mod: string;
             serie: string;
             nNF: string;
-            dhEmi: string | Date;
-            dhSaiEnt: string | Date;
+            dhEmi: Date;
+            dhSaiEnt: Date;
             tpNF: string;
             idDest: string;
             cMunFG: string;
@@ -185,7 +185,7 @@ export interface NfeComplete {
               vPIS: string;
               vCOFINS: string;
               vOutro: string;
-              vNF: string | number;
+              vNF: number;
               vTotTrib: string;
             };
           };
@@ -277,7 +277,7 @@ export interface NfeComplete {
           tpAmb: string;
           verAplic: string;
           chNFe: string;
-          dhRecbto: string | Date;
+          dhRecbto: Date;
           nProt: string;
           digVal: string;
           cStat: string;
@@ -309,8 +309,8 @@ interface TransformedNfeComplete {
             mod: string;
             serie: string;
             nNF: string;
-            dhEmi: string | Date;
-            dhSaiEnt: string | Date;
+            dhEmi: Date;
+            dhSaiEnt: Date;
             tpNF: string;
             idDest: string;
             cMunFG: string;
@@ -399,7 +399,7 @@ interface TransformedNfeComplete {
               vPIS: string;
               vCOFINS: string;
               vOutro: string;
-              vNF: string | number;
+              vNF: number;
               vTotTrib: string;
             };
           };
@@ -491,7 +491,7 @@ interface TransformedNfeComplete {
           tpAmb: string;
           verAplic: string;
           chNFe: string;
-          dhRecbto: string | Date;
+          dhRecbto: Date;
           nProt: string;
           digVal: string;
           cStat: string;
@@ -523,8 +523,8 @@ export class NfeComplete implements TransformedNfeComplete {
             mod: string;
             serie: string;
             nNF: string;
-            dhEmi: string | Date;
-            dhSaiEnt: string | Date;
+            dhEmi: Date;
+            dhSaiEnt: Date;
             tpNF: string;
             idDest: string;
             cMunFG: string;
@@ -613,7 +613,7 @@ export class NfeComplete implements TransformedNfeComplete {
               vPIS: string;
               vCOFINS: string;
               vOutro: string;
-              vNF: string | number;
+              vNF: number;
               vTotTrib: string;
             };
           };
@@ -705,7 +705,7 @@ export class NfeComplete implements TransformedNfeComplete {
           tpAmb: string;
           verAplic: string;
           chNFe: string;
-          dhRecbto: string | Date;
+          dhRecbto: Date;
           nProt: string;
           digVal: string;
           cStat: string;

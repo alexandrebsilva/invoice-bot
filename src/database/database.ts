@@ -1,7 +1,7 @@
 import mongoose, { Connection, Mongoose } from "mongoose";
 import { AvailableCompaniesNames } from "../configs/companies";
 import { NfeSummary } from "./models/nfe-summary";
-import { NfeComplete } from "./models/nfe-complete";
+import { DetItem, NfeComplete } from "./models/nfe-complete";
 
 class DatabaseManager {
   private static uri =
@@ -63,12 +63,96 @@ class DatabaseManager {
     return result?.ultNSU;
   }
 
+  
   public async findAll(collectionName: string): Promise<any[]> {
     const connection = await this.getConnection();
     const collection = connection.collection(collectionName);
     const result = await collection.find({}).toArray();
     return result;
   }
-}
+
+  async function start(startParams: StartParams): Promise<void> {
+    const distribuicao = new DistribuicaoDFe({
+      pfx: readFileSync(startParams.certPath),
+      passphrase: startParams.passphrase,
+      cnpj: startParams.cnpj,
+      cUFAutor: "35",
+      tpAmb: "1",
+    });
+  
+    const databaseManager = new DatabaseManager();
+    try {
+      let continuar = true;
+  
+      while (continuar) {
+        let nsu = await databaseManager.findLast(
+          "interactions",
+          startParams.companyName
+        );
+  
+        nsu = nsu || "000000000000000";
+  
+        const resposta = await distribuicao.consultaUltNSU(nsu);
+        if (resposta.error) {
+          throw new Error(resposta.error);
+        }
+  
+        const { cStat, ultNSU, xMotivo, tpAmb } = resposta.data;
+  
+        console.log(`Recebido cStat: ${cStat}, NSU: ${nsu}, date: ${new Date()}`);
+  
+        switch (+cStat) {
+          case 137:
+            console.log("Nenhum documento localizado. Aguardando 1 hora...");
+            await delay(3600000); // Pausa de 1 hora
+            break;
+          case 138:
+            console.log("Documento localizado. Reconsultando em 1 segundo...");
+            break;
+          case 656:
+            console.log("Uso indevido. Rebuscando notas em 1 hora");
+            await delay(3600000); // Pausa de 1 hora
+            break;
+          case 100:
+            console.log(`Nota processada com sucesso! NSU: ${nsu}`);
+            break;
+          default:
+            console.log("Código desconhecido. Finalizando...");
+            continuar = false; // Encerra o loop para códigos não tratados
+            break;
+        }
+  
+        for (const element of resposta.data.docZip) {
+          const type = element.json.resNFe
+            ? "nfe_summary"
+            : element.json.resEvento
+            ? "nfe_event"
+            : element.json.nfeProc
+            ? "nfe_complete"
+            : "other";
+  
+          await databaseManager.save(type, {
+            companyName: startParams.companyName,
+            ...element,
+          });
+        }
+  
+        await databaseManager.save("interactions", {
+          cStat,
+          nsu,
+          ultNSU: ultNSU,
+          xMotivo,
+          tpAmb,
+          createdAt: new Date(),
+          companyName: startParams.companyName,
+          success: [137, 138, 100].includes(+cStat),
+        });
+      }
+    } catch (error) {
+      console.error("Erro ao consultar o SEFAZ:", error);
+    }
+  }
+  
+
 
 export default DatabaseManager;
